@@ -1,0 +1,25 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "es2017": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "extraFileExtensions": [
+            ".svelte"
+        ]
+    },
+    "rules": {
+        "indent": [
+            "warn",
+            4
+        ]
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:svelte/recommended"
+    ]
+}
