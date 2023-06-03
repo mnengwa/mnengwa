@@ -16,6 +16,12 @@
         "indent": [
             "warn",
             4
+        ],
+        "max-len": [
+            "warn",
+            {
+                "code": 120
+            }
         ]
     },
     "extends": [

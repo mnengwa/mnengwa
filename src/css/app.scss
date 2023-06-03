@@ -1,38 +1,83 @@
-/* Include Bootstrap */
+@use "sass:map";
 
-//  1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../../node_modules/bootstrap/scss/functions";
+$palette: (
+    "abyss": #212121,
+    "light": #F5F5F5,
 
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/variables-dark";
-
-// 4. Include any default map overrides here
-// Create your own map
-$custom-colors: (
-    "abyss": #212121 "light": #F5F5F5 "blood": #FF1443 "power": #FFD700 "plant": #50C878 "water": #174AE4
+    "blood": #FF1443,
+    "fires": #FFD700,
+    "plant": #50C878,
+    "water": #174AE4
 );
 
-// Merge the maps
-$theme-colors: map-merge($theme-colors, $custom-colors);
+$palette : map-merge($palette, ("ether": mix(map-get($palette, "abyss"), map-get($palette, "light"), 50%),
 
-$theme-colors: map-remove($theme-colors, "info", "light", "dark");
+        "earth": mix(map-get($palette, "blood"), map-get($palette, "fires"), 50%),
+    ));
+/* Include Bootstrap */
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$primary: map-get($palette, "blood") !default;
+$secondary: map-get($palette, "ether") !default;
+$success: map-get($palette, "plant") !default;
+$info: map-get($palette, "water") !default;
+$warning: map-get($palette, "fires") !default;
+$danger: map-get($palette, "earth") !default;
+$light: map-get($palette, "light") !default;
+$dark: map-get($palette, "abyss") !default;
+
+$font-family-sans-serif: 'Quicksand',
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    "Liberation Sans",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji" !default;
+
+$font-family-monospace: 'Fira Code',
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace !default;
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
 
 // 5. Include remainder of required parts
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
 
 // 6. Optionally include any other parts as needed
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/helpers";
-@import "../../node_modules/bootstrap/scss/utilities";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
 
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/grid";
-@import "../../node_modules/bootstrap/scss/containers";
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 8. Bootstrap icons
+$bootstrap-icons-font-file: "bootstrap-icons/font/fonts/bootstrap-icons";
+
+@import "bootstrap-icons/font/bootstrap-icons";
 
 // 7. Custom styles / rules
 blockquote {
