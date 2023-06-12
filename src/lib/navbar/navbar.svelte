@@ -2,8 +2,16 @@
     import Logo from "$lib/brand/logo.svelte";
     import Name from "$lib/brand/name.svelte";
     import NavItem from "$lib/navbar/nav-item.svelte";
-    import Dropdown from "$lib/navbar/drop-down.svelte";
-    import DropdownItem from "$lib/navbar/drop-down-item.svelte";
+    import {
+        Sun,
+        Moon,
+        Stars,
+        Discover,
+        Journals,
+        Projects,
+        Snowflake,
+        FloppyDisk,
+    } from "$lib/icons";
 </script>
 
 <nav class="navbar py-2">
@@ -17,39 +25,34 @@
         </a>
 
         <ul class="m-0 h-100 list-unstyled d-flex gap-4 gap-md-5">
-            <NavItem href="projects">
-                <i slot="icon" class="fs-3 bi bi-collection-fill" />
+            <NavItem href="/projects" name="Projects">
+                <Projects size={32} slot="icon" />
             </NavItem>
-
-            <NavItem href="journals">
-                <i slot="icon" class="fs-3 bi bi-bookmarks-fill" />
+            <NavItem href="/journals" name="Journals">
+                <Journals size={32} slot="icon" />
             </NavItem>
-
-            <NavItem href="discover">
-                <i slot="icon" class="fs-3 bi bi-asterisk" />
-
-                <Dropdown slot="drop-down">
-                    <DropdownItem href="/playlist">
-                        <span
-                            slot="name"
-                            class="fs-5 fw-semibold text-decoration-none"
-                            >Playlist
-                        </span>
-                        <i
-                            slot="icon"
-                            class="fs-5 fw-semibold bi bi-music-note-list"
-                        />
-                    </DropdownItem>
-
-                    <DropdownItem href="/fractals">
-                        <span
-                            slot="name"
-                            class="fs-5 fw-semibold text-decoration-none"
-                            >Fractals
-                        </span>
-                        <i slot="icon" class="fs-5 fw-semibold bi bi-snow3" />
-                    </DropdownItem>
-                </Dropdown>
+            <NavItem
+                href="/discover"
+                name="Discover"
+                menu={[
+                    {
+                        icon: Stars,
+                        href: "/themes",
+                        name: "Themes",
+                        menu: [
+                            { name: "Dark", icon: Moon, func: () => {} },
+                            { name: "Light", icon: Sun, func: () => {} },
+                            { name: "Retro", icon: FloppyDisk, func: () => {} },
+                        ],
+                    },
+                    {
+                        icon: Snowflake,
+                        href: "/fractals",
+                        name: "Fractals",
+                    },
+                ]}
+            >
+                <Discover size={32} slot="icon" />
             </NavItem>
         </ul>
     </div>
@@ -67,6 +70,10 @@
         box-sizing: border-box;
         height: $height;
         width: 100%;
+    }
+
+    .navbar div.container {
+        height: 48px;
     }
 
     hr {

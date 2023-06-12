@@ -1,0 +1,11 @@
+export {default as Sun} from "$lib/icons/sun.svelte";
+export {default as Moon} from "$lib/icons/moon.svelte";
+export {default as Stars} from "$lib/icons/stars.svelte";
+export {default as Playlist} from "$lib/icons/playlist.svelte";
+export {default as Discover} from "$lib/icons/discover.svelte";
+export {default as Journals} from "$lib/icons/journals.svelte";
+export {default as Projects} from "$lib/icons/projects.svelte";
+export {default as Snowflake} from "$lib/icons/snowflake.svelte";
+export {default as ArrowLeft} from "$lib/icons/arrow-left.svelte";
+export {default as ArrowRight} from "$lib/icons/arrow-right.svelte";
+export {default as FloppyDisk} from "$lib/icons/floppy-disk.svelte";
