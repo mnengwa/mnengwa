@@ -20,6 +20,9 @@ $palette : map-merge($palette, ("ether": mix(map-get($palette, "abyss"), map-get
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
+// https: //getbootstrap.com/docs/5.3/customize/css-variables/#prefix
+$prefix: mnengwa-;
+
 $primary: map-get($palette, "blood") !default;
 $secondary: map-get($palette, "ether") !default;
 $success: map-get($palette, "plant") !default;
