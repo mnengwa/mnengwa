@@ -21,7 +21,7 @@ $palette : map-merge($palette, ("ether": mix(map-get($palette, "abyss"), map-get
 
 // 2. Include any default variable overrides here
 // https: //getbootstrap.com/docs/5.3/customize/css-variables/#prefix
-$prefix: mnengwa-;
+$prefix: ms-;
 
 $primary: map-get($palette, "blood") !default;
 $secondary: map-get($palette, "ether") !default;
@@ -32,7 +32,7 @@ $danger: map-get($palette, "earth") !default;
 $light: map-get($palette, "light") !default;
 $dark: map-get($palette, "abyss") !default;
 
-$font-family-sans-serif: 'Quicksand',
+$font-family-sans-serif: 'Crimson Pro',
     system-ui,
     -apple-system,
     "Segoe UI",

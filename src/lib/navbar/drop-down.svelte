@@ -113,6 +113,6 @@
     top: calc(var(--gap) * 0.5);
 
     filter: opacity(0.25);
-    background-color: var(--mnengwa-secondary);
+    background-color: var(--ms-secondary);
   }
 </style>

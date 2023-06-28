@@ -40,10 +40,10 @@
   .drop-down-list-item a,
   .drop-down-list-item button {
     cursor: pointer;
-    color: var(--mnengwa-link-color);
+    color: var(--ms-link-color);
 
     &:hover {
-      color: var(--mnengwa-link-hover-color);
+      color: var(--ms-link-hover-color);
     }
   }
 </style>
