@@ -1,0 +1,76 @@
+<svg fill="none" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        :root {
+          --theme-color: #212121;
+          --accent-color: #ff1443;
+        }
+
+        .semi-colon {
+          fill: var(--accent-color);
+          stroke: var(--accent-color);
+        }
+
+        .forward-slash {
+          stroke: var(--theme-color);
+        }
+
+        .dash {
+          stroke: var(--theme-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --theme-color: #f5f5f5;
+          }
+        }
+
+        @media (prefers-color-scheme: light) {
+          :root {
+            --theme-color: #212121;
+          }
+        }
+      </style>
+
+      <path
+        class="dash"
+        d="M149 96L213 96"
+        stroke-width="32"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="dash"
+        d="M128 160L213 160"
+        stroke-width="32"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="forward-slash"
+        d="M106.667 32L85.3333 224"
+        stroke-width="32"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="forward-slash"
+        d="M170.667 32L149.333 224"
+        stroke-width="32"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="semi-colon"
+        d="M43 112C51.8366 112 59 104.837 59 96C59 87.1634 51.8366 80 43 80C34.1634 80 27 87.1634 27 96C27 104.837 34.1634 112 43 112Z"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="semi-colon"
+        d="M43 176C51.8366 176 59 168.837 59 160C59 151.163 51.8366 144 43 144C34.1634 144 27 151.163 27 160C27 168.837 34.1634 176 43 176Z"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
