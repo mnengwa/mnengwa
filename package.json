@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "type": "module",
+    "module": "./src/main.ts",
+    "scripts": {
+        "test": "bun test",
+        "jest": "bun test --watch",
+        "debug": "bun ./src/main.ts",
+        "start": "bun ./out/index.js",
+        "build": "bun run build:out && bun run build:dist",
+        "build:out": "bun build ./src/main.ts --outfile ./out/mnengwa-studios --compile --minify --sourcemap --bytecode",
+        "build:dist": "bun build ./src/main.ts --outdir ./dist --target bun --splitting --minify --sourcemap --bytecode"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "2.1.4",
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    }
+}

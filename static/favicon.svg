@@ -1,0 +1,25 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        @media (prefers-color-scheme: dark) {
+            .hash {
+                stroke: #F5F5F5;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .hash {
+                stroke: #212121;
+            }
+        }
+    </style>
+
+    <!-- intersecting lines -->
+    <path class="hash" d="M149 96L213 96" stroke="#F5F5F5" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="hash" d="M128 160L213 160" stroke="#F5F5F5" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="hash" d="M106.667 32L85.3333 224" stroke="#F5F5F5" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="hash" d="M170.667 32L149.333 224" stroke="#F5F5F5" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- red dots -->
+    <path class="dots" d="M43 112C51.8366 112 59 104.837 59 96C59 87.1634 51.8366 80 43 80C34.1634 80 27 87.1634 27 96C27 104.837 34.1634 112 43 112Z" fill="#FF1443" stroke="#FF1443" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="dots" d="M43 176C51.8366 176 59 168.837 59 160C59 151.163 51.8366 144 43 144C34.1634 144 27 151.163 27 160C27 168.837 34.1634 176 43 176Z" fill="#FF1443" stroke="#FF1443" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
