@@ -17,5 +17,8 @@
     },
     "peerDependencies": {
         "typescript": "^5"
+    },
+    "dependencies": {
+        "happy-dom": "^18.0.1"
     }
 }
