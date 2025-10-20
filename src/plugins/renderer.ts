@@ -21,7 +21,7 @@ export default (<BunPlugin>{
             console.debug("Imported HTML file:", args.path);
 
             const htmlString = await Bun.file(args.path).text();
-            // console.debug(htmlString);
+            console.debug({ htmlString });
 
             // Handle @extend:base directive
             const directive = htmlString.split("\n")[0];

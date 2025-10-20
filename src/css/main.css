@@ -9,11 +9,24 @@ body {
     height: 100dvh;
 }
 
-main,
-header,
-footer,
-section {
-    padding: 0 4rem;
+body {
+    > main,
+    > header,
+    > footer,
+    > section {
+        padding: 0 4rem;
+    }
+}
+
+header#_header {
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    img#_header-logo {
+        height: 32px;
+    }
 }
 
 .squared {
