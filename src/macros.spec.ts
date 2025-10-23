@@ -15,6 +15,9 @@ describe("macros.ts", () => {
             result.forEach((file) => {
                 expect(file.endsWith(".html")).toBe(true);
             });
+
+            expect(result).toContain("_.html");
+            expect(result).toContain("_test.html");
         });
 
         it("should not return files that don't start with underscore", async () => {
