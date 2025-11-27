@@ -14,10 +14,50 @@
 
     <link rel="manifest" href="/static/site.webmanifest" />
     <link rel="stylesheet" href="@css/main.css" />
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Theme default
+            const htmlEl = document.querySelector('html');
+            const themeToggleEl = document.getElementById('_theme-toggle');
+            const theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light"
+
+            htmlEl && htmlEl.setAttribute('data-theme', theme);
+
+            window.toggleTheme = function toggleTheme() {
+                const theme = htmlEl.dataset.theme === "dark" ? "light" : "dark";
+                htmlEl && htmlEl.setAttribute('data-theme', theme);
+            };
+        });
+    </script>
 </head>
 
 <body>
+    <header id="_header">
+        <div id="_header-logo">
+            <img class="darker" src="@images/brand/logo-black.svg" />
+            <img class="lighter" src="@images/brand/logo-white.svg" />
+        </div>
+
+        <nav id="_header-menu">
+            <a href="/">Home</a>
+            <a href="/works">Works</a>
+            <a href="/about">About</a>
+        </nav>
+
+        <div id="_header_extra">
+            <button id="_theme-toggle" onclick="toggleTheme()">
+                <img class="darker" src="@images/icons/moon.svg" />
+                <img class="lighter" src="@images/icons/sun.svg" />
+            </button>
+        </div>
+    </header>
+
     <!-- @content -->
+
+    <script type="text/javascript">
+
+    </script>
 </body>
 
 </html>

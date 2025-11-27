@@ -1,15 +1,20 @@
 import path from "node:path";
 import { Window } from "happy-dom";
+import { HTML_TEMPLATE_FILES } from "@/macros";
 
-export async function validate(directive?: string) {
-    // 1. Retrive the template
+export async function parseDirective(htmlPathname: string) {
+    // 1. Extract the directive
+    const content = await Bun.file(htmlPathname).text();
+    let directive = content.split("\n")[0];
+
     if (directive === undefined || typeof directive !== "string")
+        // 2. Retrive the template
         return { error: "The directive param MUST be a string" };
 
     directive = directive.replace(/\s+/g, " ").trim();
     if (directive.length === 0) return null;
 
-    if (!directive.startsWith("<!--") && !directive.endsWith("-->"))
+    if (!directive.startsWith("<!--") || !directive.endsWith("-->"))
         return null;
 
     directive = directive.replace(/^<!--/, "").replace(/-->/, "").trim();
@@ -18,20 +23,14 @@ export async function validate(directive?: string) {
 
     if (filename === null) return null;
 
-    let pathname = filename[0]
-        .trim()
-        .replace("@extend:", "")
-        .replace("base", "_");
+    let pathname = filename[0].trim().replace("@extend:", "");
 
-    pathname = `${pathname}.html`;
-    pathname = path.join(process.cwd(), "src", "html", pathname);
-
-    const fileBlob = Bun.file(path.join(pathname));
-    const exists = await fileBlob.exists();
+    pathname = pathname === "base" ? "_.html" : `_${pathname}.html`;
+    const exists = (await HTML_TEMPLATE_FILES()).includes(pathname);
 
     if (!exists) return null;
 
-    // 2. Parse the attributes
+    // 3. Parse the attributes
     const window = new Window();
     const parser = new window.DOMParser();
 
@@ -52,13 +51,15 @@ export async function validate(directive?: string) {
         }
     }
 
-    // 3. Get the template contents
-    const template = await fileBlob.text();
+    // 4. Get the template contents
+    const template = await Bun.file(
+        path.join(process.cwd(), "src", "html", pathname),
+    ).text();
 
-    return { meta, template };
+    return { meta, content, directive, template };
 }
 
-export async function run({
+export async function runDirective({
     meta,
     content,
     template,
@@ -88,7 +89,7 @@ export async function run({
             element(el) {
                 if (meta?.has("description")) {
                     el.append(
-                        `<meta name="description" content="${meta.get("description")}">`,
+                        `<meta name="description" content="${Bun.escapeHTML(meta.get("description") ?? "")}">`,
                         {
                             html: true,
                         },
