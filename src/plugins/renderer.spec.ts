@@ -1,5 +1,5 @@
 import path from "node:path";
-import { parseDirective } from "./directives";
+import { parseDirective } from "./renderer";
 import { describe, expect, test } from "bun:test";
 
 describe("directive.ts", () => {

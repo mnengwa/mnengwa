@@ -96,16 +96,16 @@ header#_header {
     align-items: center;
 }
 
-#_header-logo {
+#_header-brand {
     height: 32px;
 
-    > img {
+    > .logo {
         height: 100%;
     }
 }
 
 #_header-menu {
-    padding: 0 2rem;
+    padding: 0 var(--spacing);
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -118,11 +118,16 @@ header#_header {
         font-weight: 500;
 
         letter-spacing: 1px;
-        text-transform: uppercase;
         text-decoration: none;
+        text-transform: uppercase;
 
         &:hover {
             color: var(--red);
+        }
+
+        > .icon {
+            display: none;
+            height: 32px;
         }
     }
 }
@@ -148,8 +153,41 @@ header#_header {
     align-items: center;
     justify-content: center;
 
-    > img {
+    > .icon {
         width: 1.2rem;
         height: 1.2rem;
     }
+}
+
+/* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    #_header-menu {
+        width: 100%;
+
+        > a {
+            font-size: 0px;
+
+            .icon {
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+}
+
+/* `lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+}
+
+/* `xl` applies to large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}
+
+/* `xxl` applies to x-large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
 }

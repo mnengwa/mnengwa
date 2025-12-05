@@ -34,21 +34,30 @@
 
 <body>
     <header id="_header">
-        <div id="_header-logo">
-            <img class="darker" src="@images/brand/logo-black.svg" />
-            <img class="lighter" src="@images/brand/logo-white.svg" />
+        <div id="_header-brand">
+            <img class="darker logo" data-render="vector" src="@images/brand/logo-black.svg" alt="MS" />
+            <img class="lighter logo" data-render="vector" src="@images/brand/logo-white.svg" alt="MS" />
         </div>
 
         <nav id="_header-menu">
-            <a href="/">Home</a>
-            <a href="/works">Works</a>
-            <a href="/about">About</a>
+            <a href="/">
+                Home
+                <img class="icon" data-render="vector" src="@images/icons/house.svg" />
+            </a>
+            <a href="/works">
+                Works
+                <img class="icon" data-render="vector" src="@images/icons/drafting-compass.svg" />
+            </a>
+            <a href="/about">
+                About
+                <img class="icon" data-render="vector" src="@images/icons/briefcase-business.svg" />
+            </a>
         </nav>
 
         <div id="_header_extra">
             <button id="_theme-toggle" onclick="toggleTheme()">
-                <img class="darker" src="@images/icons/moon.svg" />
-                <img class="lighter" src="@images/icons/sun.svg" />
+                <img class="darker icon" data-render="vector" src="@images/icons/moon.svg" />
+                <img class="lighter icon" data-render="vector" src="@images/icons/sun.svg" />
             </button>
         </div>
     </header>

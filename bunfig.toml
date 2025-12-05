@@ -1,2 +1,3 @@
 [serve.static]
 plugins = ["./src/plugins/renderer.ts"]
+; plugins = ["./src/plugins/renderer.ts", "./src/plugins/vectorize.ts"]
