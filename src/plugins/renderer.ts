@@ -124,11 +124,15 @@ export async function useVector(htmlString: string) {
                 ).documentElement;
 
                 for (const [key, val] of img.attributes) {
-                    if (key !== "class") continue;
+                    if (["alt", "src", "data-render"].includes(key)) continue;
 
-                    svgElement.classList.add(
-                        ...val.split(" ").map((c) => c.trim()),
-                    );
+                    if (key === "class") {
+                        svgElement.classList.add(
+                            ...val.split(" ").map((c) => c.trim()),
+                        );
+                    }
+
+                    svgElement.setAttribute(key, val);
                 }
 
                 // Replace the image with the SVG
