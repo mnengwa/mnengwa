@@ -89,6 +89,20 @@ button {
     background: var(--color-primary);
 }
 
+/* Decorations */
+.dot-matrix {
+    background-image: radial-gradient(
+        circle at 4px 4px,
+        var(--color-text) 1px,
+        transparent 0
+    );
+
+    background-size: 15px 15px;
+    background-position-x: 7.5px;
+    background-position-y: 7.5px;
+    filter: opacity(20%);
+}
+
 header#_header {
     height: 56px;
 
@@ -161,27 +175,24 @@ header#_header {
 
 /* Index page */
 #landing {
+    overflow: hidden;
+    min-height: 400px;
+    position: relative;
     padding: var(--spacing);
 
-    background-image: radial-gradient(
-        circle at 4px 4px,
-        var(--color-text) 1px,
-        transparent 0
-    );
+    .dot-matrix {
+        width: 100%;
+        height: 100%;
 
-    background-size: 15px 15px;
-    background-position-x: 7.5px;
-    background-position-y: 7.5px;
-    filter: opacity(20%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
 
-    #shout-out {
-        height: 200px;
-        opacity: 100%;
-        padding: 0 calc(1.6 * var(--spacing));
-
-        > .shout-out-item {
-            height: 100%;
-        }
+    #brand-name {
+        width: 75%;
+        /* padding: calc(2 * var(--spacing)); */
     }
 }
 
@@ -202,17 +213,10 @@ header#_header {
     }
 
     #landing {
-        #shout-out {
+        #brand-name {
             width: 100%;
-            height: 200px;
-
             transform-origin: left;
-            transform: translate(45%, -50%) rotate(90deg);
-
-            > .shout-out-item {
-                /* transform: rotate(90deg); */
-                height: 100%;
-            }
+            transform: translate(80%, -20%) rotate(90deg);
         }
     }
 }
