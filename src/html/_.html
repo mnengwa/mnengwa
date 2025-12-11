@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="@css/main.css" />
 
     <script type="text/javascript">
+        // Theme default
         document.addEventListener("DOMContentLoaded", function () {
-            // Theme default
             const htmlEl = document.querySelector('html');
             const themeToggleEl = document.getElementById('_theme-toggle');
             const theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light"
@@ -28,6 +28,73 @@
                 const theme = htmlEl.dataset.theme === "dark" ? "light" : "dark";
                 htmlEl && htmlEl.setAttribute('data-theme', theme);
             };
+        });
+
+        // Bouncing ball animation
+        document.addEventListener("DOMContentLoaded", function () {
+            const space = document.querySelector("#dot-matrix-space");
+            const ball = document.querySelector("#dot-matrix-particle");
+
+            const R = 20; // radius
+            const SPEED = 0.45;
+            const BOUNCE_DAMP = 0.98;
+            const ANGLE_DRIFT = 0.0025;
+
+            let x, y, vx, vy;
+
+            function initBall() {
+                const w = space.clientWidth;
+                const h = space.clientHeight;
+
+                const side = Math.floor(Math.random() * 4);
+
+                if (side === 0) { x = Math.random() * w; y = R; }
+                if (side === 1) { x = w - R; y = Math.random() * h; }
+                if (side === 2) { x = Math.random() * w; y = h - R; }
+                if (side === 3) { x = R; y = Math.random() * h; }
+
+                let angle = Math.atan2(h / 2 - y, w / 2 - x);
+                angle += (Math.random() - 0.5) * 0.5;
+
+                vx = Math.cos(angle) * SPEED;
+                vy = Math.sin(angle) * SPEED;
+            }
+
+            initBall();
+
+            function update() {
+                const w = space.clientWidth;
+                const h = space.clientHeight;
+
+                // drift wobble
+                const drift = (Math.random() - 0.5) * ANGLE_DRIFT;
+                const cos = Math.cos(drift);
+                const sin = Math.sin(drift);
+
+                const vxNew = vx * cos - vy * sin;
+                const vyNew = vx * sin + vy * cos;
+
+                vx = vxNew;
+                vy = vyNew;
+
+                x += vx;
+                y += vy;
+
+                // soft bounce
+                if (x < R) { x = R; vx = -vx * BOUNCE_DAMP; }
+                if (x > w - R) { x = w - R; vx = -vx * BOUNCE_DAMP; }
+                if (y < R) { y = R; vy = -vy * BOUNCE_DAMP; }
+                if (y > h - R) { y = h - R; vy = -vy * BOUNCE_DAMP; }
+
+                ball.style.transform = `translate(${x - R}px, ${y - R}px)`;
+            }
+
+            function loop() {
+                update();
+                requestAnimationFrame(loop);
+            }
+
+            loop();
         });
     </script>
 </head>

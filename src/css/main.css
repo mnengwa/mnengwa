@@ -190,6 +190,21 @@ header#_header {
         z-index: -1;
     }
 
+    #dot-matrix-space {
+        width: calc(100% - 2rem);
+        min-height: inherit;
+        position: absolute;
+        overflow: hidden;
+
+        #dot-matrix-particle {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            display: inline-block;
+            background: var(--red);
+        }
+    }
+
     #brand-name {
         width: 75%;
         /* padding: calc(2 * var(--spacing)); */
